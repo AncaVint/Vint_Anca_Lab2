@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Vint_Anca_Lab2.Data;
 using Vint_Anca_Lab2.Models;
 
-namespace Vint_Anca_Lab2.Pages.Authors
+namespace Vint_Anca_Lab2.Pages.Categories
 {
     public class CreateModel : PageModel
     {
@@ -25,18 +25,18 @@ namespace Vint_Anca_Lab2.Pages.Authors
         }
 
         [BindProperty]
-        public Author Author { get; set; } = default!;
+        public Category Category { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Authors == null || Author == null)
+          if (!ModelState.IsValid || _context.Category == null || Category == null)
             {
                 return Page();
             }
 
-            _context.Authors.Add(Author);
+            _context.Category.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

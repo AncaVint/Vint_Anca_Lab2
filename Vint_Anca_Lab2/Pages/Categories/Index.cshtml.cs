@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Vint_Anca_Lab2.Data;
 using Vint_Anca_Lab2.Models;
 
-namespace Vint_Anca_Lab2.Pages.Authors
+namespace Vint_Anca_Lab2.Pages.Categories
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace Vint_Anca_Lab2.Pages.Authors
             _context = context;
         }
 
-        public IList<Author> Author { get;set; } = default!;
+        public IList<Category> Category { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Authors != null)
+            if (_context.Category != null)
             {
-                Author = await _context.Authors.ToListAsync();
+                Category = await _context.Category.ToListAsync();
             }
         }
     }
